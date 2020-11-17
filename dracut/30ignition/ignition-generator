@@ -69,3 +69,6 @@ else
 fi
 
 echo "PLATFORM_ID=$(cmdline_arg ignition.platform.id)" > /run/ignition.env
+
+# https://bugzilla.redhat.com/show_bug.cgi?id=1886134
+echo "GODEBUG=x509ignoreCN=0" >> /run/ignition.env
