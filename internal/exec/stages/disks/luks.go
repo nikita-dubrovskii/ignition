@@ -118,7 +118,7 @@ func (s *stage) createLuks(config types.Config) error {
 		}
 		keyFilePath := filepath.Join(distro.LuksInitramfsKeyFilePath(), luks.Name)
 		devAlias := execUtil.DeviceAlias(*luks.Device)
-		if util.NilOrEmpty(luks.KeyFile.Source) {
+		if luks.KeyFile.SourcesAreEmpty() {
 			// create a keyfile
 			key, err := randHex(4096)
 			if err != nil {
